@@ -1,4 +1,4 @@
-package mobile.project.com.financask.ui.activity
+package mobile.project.com.financask.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.transacao_item.view.*
 import mobile.project.com.financask.R
+import mobile.project.com.financask.extension.formataParaBrasileiro
 import mobile.project.com.financask.model.Transacao
-import java.text.SimpleDateFormat
 
 /**
  * Created by andressa on 14/11/17.
@@ -24,7 +24,7 @@ class ListaTransacoesAdapter(transacoes: List<Transacao>,
         val transacao = transacoes[posicao]
         view.transacao_valor.text = transacao.valor.toString()
         view.transacao_categoria.text = transacao.categoria
-        view.transacao_data.text = SimpleDateFormat("dd/MM/yyyy").format(transacao.data.time)
+        view.transacao_data.text = transacao.data.formataParaBrasileiro()
         return view
     }
 
