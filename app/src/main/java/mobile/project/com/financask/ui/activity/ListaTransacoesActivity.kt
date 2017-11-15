@@ -9,20 +9,20 @@ import mobile.project.com.financask.model.Transacao
 import mobile.project.com.financask.ui.adapter.ListaTransacoesAdapter
 import java.math.BigDecimal
 
-/**
- * Created by andressa on 12/11/17.
- */
-
 class ListaTransacoesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_transacoes)
+        val transacoes: List<Transacao> = transacoesDeExemplo()
+        configuraLista(transacoes)
+    }
 
-        val transacoes = listOf(Transacao(valor = BigDecimal(20.5), tipo = Tipo.DESPESA),
-                Transacao(valor = BigDecimal(100.0), tipo = Tipo.RECEITA))
-
+    private fun configuraLista(transacoes: List<Transacao>) {
         lista_transacoes_listview.adapter = ListaTransacoesAdapter(transacoes, this)
     }
+
+    private fun transacoesDeExemplo() = listOf(Transacao(valor = BigDecimal(20.5), tipo = Tipo.DESPESA),
+            Transacao(valor = BigDecimal(100.0), tipo = Tipo.RECEITA, categoria = "Almoço do final de semana"))
 
 }
