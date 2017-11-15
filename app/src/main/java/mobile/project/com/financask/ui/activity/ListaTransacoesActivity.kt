@@ -8,7 +8,6 @@ import mobile.project.com.financask.model.Tipo
 import mobile.project.com.financask.model.Transacao
 import mobile.project.com.financask.ui.adapter.ListaTransacoesAdapter
 import java.math.BigDecimal
-import java.util.*
 
 /**
  * Created by andressa on 12/11/17.
